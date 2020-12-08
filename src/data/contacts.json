@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Marcus Fredriksson",
+        "number": "+46 73-859 32 85",
+        "email": "marcus@gmail.com",
+        "image": true
+    },
+    {
+        "name": "Anton Svensson",
+        "number": "+46 73-859 48 25",
+        "email": "anton.svensson.11@gmail.com",
+        "image": false
+    },
+    {
+        "name": "Cecilia Lundstedt",
+        "number": "+46 73-284 94 82",
+        "email": "cissilundstedt@gmail.com",
+        "image": true
+    },
+    {
+        "name": "Hanna",
+        "number": "+46 78-383 49 98",
+        "email": "hanna99@hotmail.se",
+        "image": true
+    }
+]
