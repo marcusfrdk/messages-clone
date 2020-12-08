@@ -1,29 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Modal, Alert, SafeAreaView, Button } from 'react-native';
+import { View, Text, StyleSheet, Alert, SafeAreaView, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Modal from '../modal/Modal';
 
 const NewMessage:any = ({ navigator }:Props) => {
     const [ modalVisible, setModalVisible ] = useState(false);
 
     return (
         <>
-            <Icon name="plus" size={30} color="#000" onPress={() => setModalVisible(true)} />
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => Alert.alert("Modal has been closed!")}
-            >
-                <SafeAreaView>
-                    <View style={styles.modalHeader}>
-                        <Text>New Message</Text>
-                        <Button title="Close" onPress={() => setModalVisible(false)} />
-                    </View>
-                    <View style={styles.modal}>
-                        <Text>Hello Modal!</Text>
-                    </View>
-                </SafeAreaView>
+            <Icon name="plus" size={30} color="#000" onPress={() => setModalVisible(true)}/>
+            <Modal title="New Message" visible={modalVisible} setVisible={setModalVisible}>
+
             </Modal>
+            
         </>
     )
 }
@@ -44,7 +33,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'blue',
         marginTop: 16,
         borderTopLeftRadius: 16,
-        borderTopRightRadius: 16
+        borderTopRightRadius: 16,
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        alignItems: "center"
+    },
+    modalTitle: {
+        position: "absolute",
+        left: "50%",
+        transform: [{translateX: -50}],
+        fontSize: 20
     }
 });
 
