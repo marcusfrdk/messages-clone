@@ -19,5 +19,12 @@ export default [
         "message": "Säger du det 🥰",
         "time": 1606926461007,
         "image": false
+    },
+    {
+        "id": 5,
+        "name": "Kevin Niklasson",
+        "message": "Haha, ja bror. Jag föredrar React över Angular då jag gillar ekosystemet React har. Sen älskar jag NextJS också, den är skitbra!",
+        "time": 1607444878450,
+        "image": false
     }
 ]

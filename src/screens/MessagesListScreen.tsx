@@ -14,6 +14,13 @@ const MessagesListScreen = ({ navigation }:Props) => {
     const [ isEditing, setIsEditing ] = useState(false);
     const [ searchValue, setSearchValue ] = useState('');
     const [ recentMessages, setRecentMessages ] = useState(dbRecentMessages);
+    let selected:any = [];
+
+    useEffect(() => {
+        if(!isEditing){
+            selected = []
+        }
+    }, [isEditing])
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -31,7 +38,13 @@ const MessagesListScreen = ({ navigation }:Props) => {
 
             {
                 recentMessages.map((data:any) => {
-                    return <RecentMessage key={data.id} time={data.time} id={data.id} message={data.message} name={data.name} image={data.image}></RecentMessage>
+                    return (
+                        <RecentMessage
+                            key={data.id}
+                            data={data}
+                            editing={isEditing}
+                            selected={selected}
+                        ></RecentMessage>)
                 })
             }
 

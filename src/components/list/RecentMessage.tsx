@@ -1,88 +1,112 @@
-import React from 'react';
-import { View, Text, Dimensions } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import timestampToDate from '../../functions/timestampToDate';
+import { useTheme } from '@react-navigation/native';
 
-const RecentMessage = ({ time, message, id, name, image }:Props) => {
+const RecentMessage = ({ data, editing, selected }:Props) => {
+    const { id, name, message, time } = data;
+    const [ isSelected, setIsSelected ] = useState(false);
+    const theme:any = useTheme();
+
+    useEffect(() => {
+        !editing ? setIsSelected(false) : '';
+    }, [editing])
+    
+    const select = () => {
+        setIsSelected(!isSelected);
+
+        if(editing){
+            const index = selected.indexOf(id);
+            selected.includes(id) ? selected.splice(index, 1) : selected.push(id);
+        }
+    }
+
     return (
-        <Body>
-            <ImageWrapper>
-                <Image/>
-            </ImageWrapper>
-            <Texts>
-                <Info>
-                    <Name>{name}</Name>
-                    <MoreInfo>
-                        <Date>{timestampToDate(time)}</Date>
-                        <Icon name="right" size={16} color="#000" style={{ marginLeft: 4 }}/>
-                    </MoreInfo>
-                </Info>
-                <Message>{message}</Message>
-            </Texts>
-        </Body>
+        <TouchableOpacity onPress={select}>
+            <View style={{ flexDirection: "row" }}>
+                <View style={[styles.selectWrapper, { display: editing ? 'flex' : 'none' }]}>
+                    <View style={[{ backgroundColor: isSelected ? theme.colors.primary : theme.colors.border }, styles.selectButton ]}/>
+                </View>
+                <View style={{
+                    flexDirection: 'row',
+                    borderBottomWidth: 1,
+                    borderBottomColor: theme.colors.border
+                }}>
+                    <View style={styles.imageWrapper}>
+                        <View style={styles.image}/>
+                    </View>
+                    <View style={{
+                        width: Dimensions.get('screen').width - (editing ? 105 : 70) - 32,
+                        justifyContent: 'center'
+                    }}>
+                        <View style={[styles.info, { width: Dimensions.get('screen').width - (editing ? 105 : 60) - (editing ? 24 : 32) }]}>
+                            <Text 
+                                numberOfLines={1}
+                                style={{
+                                    fontSize: 16,
+                                    fontWeight: '500'
+                            }}>{name}</Text>
+
+                            <View style={{ flexDirection: "row", alignItems: "center" }}>
+                                <Text numberOfLines={1} style={{ color: theme.colors.subtext }} >{timestampToDate(time)}</Text>
+                                <Icon
+                                    name="right"
+                                    size={16}
+                                    color={theme.colors.subtext}
+                                    style={{ marginLeft: 4 }}
+                                />
+                            </View>
+                        </View>
+                        <Text numberOfLines={2} style={[styles.message, { color: theme.colors.subtext, width: Dimensions.get('screen').width - (editing ? 105 : 60) - (editing ? 24 : 32) }]}>{message}</Text>
+                    </View>
+                </View>
+            </View>
+        </TouchableOpacity>
     )
 }
 
-const Body = styled.View`
-    flex-direction: row;
-    background-color: red;
-`;
-
-const Image = styled.View`
-    height: 50px;
-    width: 50px;
-    border-radius: 50px;
-    background-color: blue;
-`;
-
-const ImageWrapper = styled.View`
-    background-color: green;
-    height: 60px;
-    width: 60px;
-    align-items: center;
-    justify-content: center;
-`;
-
-const Texts = styled.View`
-    width: ${Dimensions.get('screen').width - 60 - 32 + "px"};
-`;
-
-const Info = styled.View`
-    flex-direction: row;
-    background-color: yellow;
-    height: 20px;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-`;
-
-const Message = styled.Text`
-    background-color: orange;
-    height: 40px;
-    width: 100%;
-    line-height: 20px;
-    max-height: 40px;
-    overflow: hidden;
-`;
-
-const Name = styled.Text`
-    font-weight: 500;
-`;
-
-const Date = styled.Text``;
-
-const MoreInfo = styled.View`
-    flex-direction: row;
-    align-items: center;
-`;
+const styles = StyleSheet.create({
+    selectWrapper: {
+        paddingRight: 15,
+        justifyContent: "center",
+    },
+    selectButton: {
+        height: 22,
+        width: 22,
+        borderRadius: 22
+    },
+    imageWrapper: {
+        height: 70,
+        width: 60,
+        alignItems: "flex-start",
+        justifyContent: "center",
+    },
+    image: {
+        height: 50,
+        width: 50,
+        borderRadius: 50,
+        backgroundColor: "#ccc",
+    },
+    info: {
+        flexDirection: "row",
+        height: 20,
+        width: "100%",
+        justifyContent: "space-between",
+        alignItems: "center"
+    },
+    message: {
+        height: 40,
+        lineHeight: 20,
+        maxHeight: 50,
+    }
+});
 
 interface Props {
-    time: number,
-    message: string,
-    id: number,
-    name: string,
-    image: boolean
+    data: any
+    editing: boolean
+    selected: any
 }
 
 export default RecentMessage;

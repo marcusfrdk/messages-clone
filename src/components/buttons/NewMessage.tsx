@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Alert, SafeAreaView, Button } from 'react-native';
+import { View, Text, StyleSheet, Alert, SafeAreaView, Button, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ModalHeader from '../modal/ModalHeader';
 import ModalBody from '../modal/ModalBody';
@@ -10,7 +10,7 @@ const NewMessage:any = ({ navigator }:Props) => {
     const [ secondModalActive, setSecondModalActive ] = useState(false);
 
     return (
-        <>
+        <TouchableOpacity>
             <Icon name="plus" size={30} color="#000" onPress={() => setFirstModalActive(true)} style={{ paddingRight: 16 }}/>
             <Modal
                 title="New Message"
@@ -29,7 +29,7 @@ const NewMessage:any = ({ navigator }:Props) => {
                     
                 </Modal>
             </Modal>
-        </>
+        </TouchableOpacity>
     )
 }
 
