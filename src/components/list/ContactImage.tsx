@@ -9,24 +9,26 @@ const ContactImage = ({ image, id, gender, name }:Props) => {
 
     if(!image){
         return (
-            <View style={[styles.container, { backgroundColor: theme.colors.text2 }]}>
+            <View style={[styles.container, styles.dimensions, { backgroundColor: theme.colors.text2 }]}>
                 <Text style={{ fontSize: 20, color: "#FFF" }}>{getInitials(name)}</Text>
             </View>
         )
     } else{
         return (
             <View style={styles.container}>
-                <Image style={{ height: 50, width: 50, borderRadius: 50 }} source={{ uri: url }}/>
+                <Image style={styles.dimensions} source={{ uri: url }}/>
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    dimensions: {
+        height: 45,
+        width: 45,
+        borderRadius: 45
+    },
     container: {
-        height: 50,
-        width: 50,
-        borderRadius: 50,
         justifyContent: "center",
         alignItems: "center"
     },

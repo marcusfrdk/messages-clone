@@ -17,9 +17,9 @@ export default (timestamp:number) => {
     // Used for: Dates older than a week
     const date_ts = new Date(timestamp);
     const date_day = date_ts.getDate();
-    const date_month = date_ts.getMonth();
+    const date_month = date_ts.getMonth() + 1;
     const date_year = date_ts.getFullYear();
-    const date = date_day + "/" + date_month + "-" + date_year
+    const date = date_day + "-" + date_month + "-" + date_year
 
     // Check how to output time
     if(diff < minute){ // Check if within last minute

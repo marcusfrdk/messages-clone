@@ -8,7 +8,8 @@ import { useTheme } from '@react-navigation/native';
 import ContactImage from './ContactImage';
 
 const RecentMessage = ({ data, editing, selected }:Props) => {
-    const { id, name, message, time, image, gender } = data;
+    let { id, name, message, time, image, gender, read } = data;
+    const [ hasRead, setHasRead ] = useState<boolean>(read);
     const [ isSelected, setIsSelected ] = useState(false);
     const theme:any = useTheme();
 
@@ -17,6 +18,8 @@ const RecentMessage = ({ data, editing, selected }:Props) => {
     }, [editing])
     
     const select = () => {
+        setHasRead(true);
+
         if(editing){
             setIsSelected(!isSelected);
             const index = selected.indexOf(id);
@@ -27,6 +30,16 @@ const RecentMessage = ({ data, editing, selected }:Props) => {
     return (
         <TouchableOpacity onPress={select}>
             <View style={{ flexDirection: "row", paddingTop: 2, paddingBottom: 2 }}>
+                {/* Not Read Icon */}
+                {
+                    !hasRead ? <View style={{ position: "absolute", height: "100%", width: 10, left: -9, justifyContent: "center", alignItems: "center" }}>
+                                <View style={{ height: 10, width: 10, borderRadius: 10, backgroundColor: theme.colors.primary }}>
+
+                                </View>
+                            </View> : null
+                }
+
+                {/* Editing */}
                 <View style={[styles.selectWrapper, { display: editing ? 'flex' : 'none' }]}>
                     <View style={[{ backgroundColor: isSelected ? theme.colors.primary : theme.colors.border }, styles.selectButton ]}>
                         {
@@ -85,14 +98,8 @@ const styles = StyleSheet.create({
     imageWrapper: {
         height: 70,
         width: 60,
-        alignItems: "flex-start",
+        alignItems: "center",
         justifyContent: "center",
-    },
-    image: {
-        height: 50,
-        width: 50,
-        borderRadius: 50,
-        backgroundColor: "#ccc",
     },
     info: {
         flexDirection: "row",

@@ -10,7 +10,7 @@ const SearchSmall = ({ value, setValue }:Props) => {
             onChangeText={text => setValue(text)}
             value={value}
             placeholder="Search"
-            style={{ padding: 8, borderRadius: 8, backgroundColor: theme.colors.background, marginBottom: 16, fontSize: 16 }}
+            style={{ padding: 8, borderRadius: 8, backgroundColor: theme.colors.background, marginBottom: 16, marginTop: 8, fontSize: 16 }}
         />
     )
 }
