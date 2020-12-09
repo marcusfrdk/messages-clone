@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Alert, SafeAreaView, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import ModalHeader from '../modal/ModalHeader';
+import ModalBody from '../modal/ModalBody';
 import Modal from '../modal/Modal';
 
 const NewMessage:any = ({ navigator }:Props) => {
-    const [ modalVisible, setModalVisible ] = useState(false);
+    const [ firstModalActive, setFirstModalActive ] = useState(false);
+    const [ secondModalActive, setSecondModalActive ] = useState(false);
 
     return (
         <>
-            <Icon name="plus" size={30} color="#000" onPress={() => setModalVisible(true)}/>
-            <Modal title="New Message" visible={modalVisible} setVisible={setModalVisible}>
+            <Icon name="plus" size={30} color="#000" onPress={() => setFirstModalActive(true)} style={{ paddingRight: 16 }}/>
+            <Modal
+                title="New Message"
+                visibility={firstModalActive}
+                setVisibility={setFirstModalActive}
+            >
+                <Text>Nice boiii</Text>
+                <Button title="Open another text" onPress={() => setSecondModalActive(true)}/>
 
+                <Modal
+                    title="Add Contact"
+                    visibility={secondModalActive}
+                    setVisibility={setSecondModalActive}
+                    modalLevel={1}
+                >
+                    
+                </Modal>
             </Modal>
-            
         </>
     )
 }
