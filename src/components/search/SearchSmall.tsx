@@ -1,28 +1,19 @@
+import { useTheme } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import styled from 'styled-components/native';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 
 const SearchSmall = ({ value, setValue }:Props) => {    
+    const theme = useTheme();
+
     return (
-        <Wrapper>
-            <Input
-                onChangeText={text => setValue(text)}
-                value={value}
-                placeholder="Search"
-            />
-        </Wrapper>
+        <TextInput
+            onChangeText={text => setValue(text)}
+            value={value}
+            placeholder="Search"
+            style={{ padding: 8, borderRadius: 8, backgroundColor: theme.colors.background, marginBottom: 16, fontSize: 16 }}
+        />
     )
 }
-
-const Wrapper = styled.View`
-    padding: 8px 0;
-`;
-
-const Input = styled.TextInput`
-    padding: 8px;
-    background-color: #fff;
-    border-radius: 4px;
-`;
 
 interface Props {
     value: string,

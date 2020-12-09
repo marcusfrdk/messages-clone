@@ -9,12 +9,14 @@ import RecentMessage from '../components/list/RecentMessage';
 
 // Data
 import dbRecentMessages from '../data/recentMessages';
+import { useTheme } from '@react-navigation/native';
 
 const MessagesListScreen = ({ navigation }:Props) => {
     const [ isEditing, setIsEditing ] = useState(false);
     const [ searchValue, setSearchValue ] = useState('');
     const [ recentMessages, setRecentMessages ] = useState(dbRecentMessages);
     let selected:any = [];
+    const theme = useTheme();
 
     useEffect(() => {
         if(!isEditing){
@@ -33,7 +35,7 @@ const MessagesListScreen = ({ navigation }:Props) => {
     }, [navigation, isEditing]);
 
     return (
-        <ScrollView style={{ paddingRight: 16, paddingLeft: 16 }}>
+        <ScrollView style={{ paddingRight: 16, paddingLeft: 16, backgroundColor: theme.colors.card }}>
             <SearchSmall value={searchValue} setValue={setSearchValue}/>
 
             {
