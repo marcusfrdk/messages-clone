@@ -16,7 +16,7 @@ const MessagesListScreen = ({ navigation }:Props) => {
     const [ searchValue, setSearchValue ] = useState('');
     const [ recentMessages, setRecentMessages ] = useState(dbRecentMessages);
     let selected:any = [];
-    const theme = useTheme();
+    const theme:any = useTheme();
 
     useEffect(() => {
         if(!isEditing){
@@ -50,23 +50,10 @@ const MessagesListScreen = ({ navigation }:Props) => {
                 })
             }
 
-            <TotalMessages>{recentMessages ? `${recentMessages.length} messages` : `0 messages`}</TotalMessages>
+            <Text style={{ padding: 16, textAlign: "center", fontSize: 16, color: theme.colors.text2 }}>{recentMessages ? `${recentMessages.length} messages` : `0 messages`}</Text>
         </ScrollView>
     )
 }
-
-// {
-//     recentMessages.map((data:any) => {
-//         return (
-//             <RecentMessage key={data.id} id={data.id} time={data.time} message={data.lastMessage}/>
-//         )
-//     })
-// }
-const TotalMessages = styled.Text`
-    padding: 16px 16px;
-    text-align: center;
-    font-size: 16px;
-`;
 
 interface Props {
     navigation: any

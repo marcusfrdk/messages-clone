@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Alert, SafeAreaView, Button, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import ModalHeader from '../modal/ModalHeader';
 import ModalBody from '../modal/ModalBody';
 import Modal from '../modal/Modal';
+import { useTheme } from '@react-navigation/native';
 
 const NewMessage:any = ({ navigator }:Props) => {
     const [ firstModalActive, setFirstModalActive ] = useState(false);
     const [ secondModalActive, setSecondModalActive ] = useState(false);
+    const theme:any = useTheme();
 
     return (
         <TouchableOpacity>
-            <Icon name="plus" size={30} color="#000" onPress={() => setFirstModalActive(true)} style={{ paddingRight: 16 }}/>
+            <Icon name="pencil-square-o" size={24} color={theme.colors.primary} onPress={() => setFirstModalActive(true)} style={{ paddingRight: 16 }}/>
             <Modal
                 title="New Message"
                 visibility={firstModalActive}

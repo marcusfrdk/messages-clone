@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import Icon2 from 'react-native-vector-icons/Ionicons';
 import timestampToDate from '../../functions/timestampToDate';
 import { useTheme } from '@react-navigation/native';
 import ContactImage from './ContactImage';
@@ -27,7 +28,11 @@ const RecentMessage = ({ data, editing, selected }:Props) => {
         <TouchableOpacity onPress={select}>
             <View style={{ flexDirection: "row", paddingTop: 2, paddingBottom: 2 }}>
                 <View style={[styles.selectWrapper, { display: editing ? 'flex' : 'none' }]}>
-                    <View style={[{ backgroundColor: isSelected ? theme.colors.primary : theme.colors.border }, styles.selectButton ]}/>
+                    <View style={[{ backgroundColor: isSelected ? theme.colors.primary : theme.colors.border }, styles.selectButton ]}>
+                        {
+                            isSelected ? <Icon2 name="ios-checkmark" size={22} color="#FFF"/> : null
+                        }
+                    </View>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
                     <View style={styles.imageWrapper}>
@@ -73,7 +78,9 @@ const styles = StyleSheet.create({
     selectButton: {
         height: 22,
         width: 22,
-        borderRadius: 22
+        borderRadius: 22,
+        justifyContent: "center",
+        alignItems: "center"
     },
     imageWrapper: {
         height: 70,
