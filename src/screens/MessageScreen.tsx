@@ -26,7 +26,7 @@ const MessageScreen = ({ navigation, route }:Props) => {
         <ScrollView
             ref={scrollViewRef}
             onContentSizeChange={() => scrollViewRef.current.scrollToEnd({ animated: true })}
-            style={{ backgroundColor: theme.colors.card, paddingTop: 16 }}
+            style={[styles.container, { backgroundColor: theme.colors.card }]}
         >
             {
                 messages.slice(0).reverse().map((data:any) => {
@@ -44,6 +44,14 @@ const MessageScreen = ({ navigation, route }:Props) => {
         </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        paddingTop: 16,
+        paddingLeft: 8,
+        paddingRight: 8
+    }
+});
 
 interface Props {
     navigation: any,

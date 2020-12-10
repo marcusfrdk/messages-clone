@@ -13,7 +13,7 @@ const HeaderImage = ({ id, gender, name, image }:Props) => {
             {
                 image ? <Image source={{ uri }} style={styles.image}/> : <View style={[styles.noImage, { backgroundColor: theme.colors.text2 }]}><Text style={{ color: '#FFF' }}>{initials}</Text></View>
             }
-            <Text style={styles.text}>{name.includes(" ") ? name.split(" ")[0] : name}</Text>
+            <Text style={styles.text} numberOfLines={1}>{name.includes(" ") ? name.split(" ")[0] : name}</Text>
         </View>
     )
 }
@@ -21,7 +21,7 @@ const HeaderImage = ({ id, gender, name, image }:Props) => {
 const styles = StyleSheet.create({
     container: {
         height: 45,
-        width: 45,
+        width: 100,
         flexDirection: "column",
         justifyContent: 'flex-start',
         alignItems: "center"
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'green'
     },
     text: {
-        fontSize: 10
+        fontSize: 10,
     },
     noImage: {
         height: 32,
