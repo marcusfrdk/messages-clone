@@ -42,7 +42,7 @@ $ yarn start
 *Then follow instructions in the new tab in your web-browser.*
 
 ## APIs
-The only API I am currently using is [https://randomuser.me/api](https://randomuser.me/api).
+The only API I am currently using is [https://randomuser.me](https://randomuser.me).
 
 ## FAQ
 **Why did you create this?**<br/>
