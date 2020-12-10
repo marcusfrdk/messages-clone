@@ -23,7 +23,7 @@ const GenerateNewUserAndMessageButton = ({ setFirstModalActive, setMessages, mes
         message.sender = Math.random() > .5 ? id : 0;
         message.receiver = message.sender == id ? 0 : id;
         message.time = +new Date();
-        message.read = false
+        message.read = message.sender == 0 ? true : false
         
         return message;
     }
