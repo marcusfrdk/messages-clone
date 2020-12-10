@@ -19,15 +19,11 @@ const EditingDeleteButton = ({ selectedItems, setSelectedItems, messages, setMes
     }
 
     return (
-        <Button title="Delete" onPress={deleteSelected} color={theme.colors.notification}/>
+        <View style={{ marginTop: 16 }}>
+            <Button title="Delete" onPress={deleteSelected} color={theme.colors.notification}/>
+        </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        
-    }
-});
 
 interface Props {
     selectedItems: any,
