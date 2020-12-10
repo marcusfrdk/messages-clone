@@ -41,6 +41,9 @@ $ yarn start
 ```
 *Then follow instructions in the new tab in your web-browser.*
 
+## APIs
+The only API I am currently using is [https://randomuser.me/api](https://randomuser.me/api).
+
 ## FAQ
 **Why did you create this?**<br/>
 Mostly for fun, but also to learn more about React Native and what is possible. I will be adding features I think Apple should implement as well.
