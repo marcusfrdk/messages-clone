@@ -12,6 +12,7 @@ import getLatestMessages from '../../functions/getLatestMessages';
 
 // Types
 import Message from '../../types/Message';
+import EditingDeleteButton from '../buttons/EditingDeleteButton';
 
 const RecentMessagesList = ({ isEditing, selectedItems, setSelectedItems }:Props) => {
     const theme:any = useTheme();
@@ -37,6 +38,10 @@ const RecentMessagesList = ({ isEditing, selectedItems, setSelectedItems }:Props
                         />
                     )
                 })
+            }
+
+            {
+                isEditing ? <EditingDeleteButton selectedItems={selectedItems} setSelectedItems={setSelectedItems} messages={messages} setMessages={setMessages}/> : null
             }
 
             <Text style={{ padding: 16, textAlign: "center", fontSize: 16, color: theme.colors.text2 }}>{messages.length === 1 ? `${messages.length} message` : `${messages.length} messages`}</Text>
