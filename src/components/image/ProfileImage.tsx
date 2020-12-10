@@ -11,7 +11,7 @@ const ProfileImage = ({ id, gender, image, name }: Props) => {
     return (
         <View style={styles.container}>
             {
-                image ? <Image source={{ uri }} style={styles.image}/> : <View style={[styles.noImage, { backgroundColor: theme.colors.text2 }]}><Text style={{ color: '#FFF' }}>{initials}</Text></View>
+                image ? <Image source={{ uri }} style={styles.image}/> : <View style={[styles.noImage, { backgroundColor: theme.colors.text2 }]}><Text style={{ color: '#FFF', fontSize: 48 }}>{initials}</Text></View>
             }
         </View>
     )
@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'green'
     },
     noImage: {
-        height: 32,
-        width: 32,
-        borderRadius: 32,
+        height: "100%",
+        width: "100%",
+        borderRadius: 128,
         justifyContent: "center",
         alignItems: "center"
     }

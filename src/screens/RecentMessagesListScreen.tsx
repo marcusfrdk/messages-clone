@@ -19,6 +19,7 @@ import Message from '../types/Message';
 
 const MessagesListScreen = ({ navigation }:any) => {
     const [ isEditing, setIsEditing ] = useState(false);
+    const [ value, setValue ] = useState("");
     const [ contacts ] = useGlobal<any>('contacts');
     const [ selectedItems, setSelectedItems ] = useState([]);
     const [ messages, setMessages ] = useState<Message[]>(() => getLatestMessages(contacts)); 
@@ -36,7 +37,7 @@ const MessagesListScreen = ({ navigation }:any) => {
 
     return (
         <ScrollView style={{ backgroundColor: theme.colors.card }}>
-            <SearchBarSmall value={""} setValue={""}/>
+            <SearchBarSmall value={value} setValue={setValue}/>
 
             <RecentMessagesList
                 isEditing={isEditing}

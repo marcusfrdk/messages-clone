@@ -1,5 +1,6 @@
-- Write own messages
+- Write own messages instead of random sentence generator
 - Search
 - Modal to profile from messages screen
 - Better looking New Message modal
 - Update user information
+- Display unread messages in header instead of total messages

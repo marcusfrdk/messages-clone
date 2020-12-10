@@ -63,7 +63,10 @@ const GenerateNewUserAndMessageButton = ({ setFirstModalActive, setMessages, mes
             
             setMessages(newList)
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            Alert.alert("Got a 503 when fetching data, please retry again.");
+            console.log(err);
+        });
 
 
         setFirstModalActive(false);
