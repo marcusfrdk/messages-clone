@@ -25,7 +25,11 @@ export default (timestamp:number) => {
     if(diff < minute){ // Check if within last minute
         return "Now"
     } else if(diffMinutes < 60){ // Check if within last hour
-        return diffMinutes + " minutes ago"
+        if(diffMinutes == 1){
+            return diffMinutes + " minute ago"
+        } else {
+            return diffMinutes + " minutes ago"
+        }
     } else if(diffHours < 24){ // Check if within last day
         if(diffHours == 1){
             return diffHours + " hour ago"
