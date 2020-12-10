@@ -35,7 +35,7 @@ const MessagesListScreen = ({ navigation }:Props) => {
     }, [navigation, isEditing]);
 
     return (
-        <ScrollView style={{ paddingRight: 16, paddingLeft: 16, backgroundColor: theme.colors.card }}>
+        <ScrollView style={{ backgroundColor: theme.colors.card }}>
             <SearchSmall value={searchValue} setValue={setSearchValue}/>
 
             {
