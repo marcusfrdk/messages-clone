@@ -20,10 +20,7 @@ const RecentMessagesList = ({ isEditing, selectedItems, setSelectedItems }:Props
     // Reset selectedItems if edit is closed
     useEffect(() => {
         !isEditing ? setSelectedItems([]) : null;
-
-        console.log(typeof(messages))
-
-    }, [isEditing, messages]);
+    }, [isEditing]);
     
     return (
         <View>

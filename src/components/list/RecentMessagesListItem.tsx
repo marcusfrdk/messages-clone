@@ -18,11 +18,12 @@ const RecentMessagesListItem = ({ data, isEditing, selectedItems, messages, setM
     }, [isEditing])
     
     const handlePress = () => {
-        setHasRead(true);
         if(isEditing){
             setIsSelected(!isSelected);
             const index = selectedItems.indexOf(id);
             selectedItems.includes(id) ? selectedItems.splice(index, 1) : selectedItems.push(id);
+        } else {
+            setHasRead(true);
         }
     }
 

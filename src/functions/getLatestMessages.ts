@@ -21,5 +21,10 @@ export default ():Message[] => {
         }
     }
 
+    // Sorting based on age
+    messages.sort((a, b) => {
+        return (a.time > b.time) ? -1 : 1;
+    })
+
     return messages;
 }
