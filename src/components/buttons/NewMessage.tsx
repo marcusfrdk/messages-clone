@@ -5,7 +5,7 @@ import ModalHeader from '../modal/ModalHeader';
 import ModalBody from '../modal/ModalBody';
 import Modal from '../modal/Modal';
 import { useTheme } from '@react-navigation/native';
-import GenerateNewMessageButton from './GenerateNewMessageButton';
+import GenerateNewUserAndMessageButton from './GenerateNewUserAndMessageButton';
 
 const NewMessage:any = ({ setMessages, messages }:Props) => {
     const [ firstModalActive, setFirstModalActive ] = useState(false);
@@ -20,7 +20,7 @@ const NewMessage:any = ({ setMessages, messages }:Props) => {
                 visibility={firstModalActive}
                 setVisibility={setFirstModalActive}
             >   
-                <GenerateNewMessageButton setFirstModalActive={setFirstModalActive} messages={messages} setMessages={setMessages} />
+                <GenerateNewUserAndMessageButton setFirstModalActive={setFirstModalActive} messages={messages} setMessages={setMessages} />
                 <Button title="Open another text" onPress={() => setSecondModalActive(true)}/>
 
                 <Modal

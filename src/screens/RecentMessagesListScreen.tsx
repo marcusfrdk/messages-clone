@@ -6,6 +6,7 @@ import { useTheme } from '@react-navigation/native';
 import SearchBarSmall from '../components/search/SearchBarSmall';
 import RecentMessagesList from '../components/list/RecentMessagesList';
 import NewMessage from '../components/buttons/NewMessage';
+import { useGlobal } from 'reactn';
 
 // Functions
 import getLatestMessages from '../functions/getLatestMessages';
@@ -15,8 +16,9 @@ import Message from '../types/Message';
 
 const MessagesListScreen = ({ navigation }:any) => {
     const [ isEditing, setIsEditing ] = useState(false);
+    const [ contacts ] = useGlobal<any>('contacts');
     const [ selectedItems, setSelectedItems ] = useState([]);
-    const [ messages, setMessages ] = useState<Message[]>(getLatestMessages); 
+    const [ messages, setMessages ] = useState<Message[]>(() => getLatestMessages(contacts)); 
     const theme:any = useTheme();
     
     // Allow edit button in header to change state

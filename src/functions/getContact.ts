@@ -1,7 +1,6 @@
-import contacts from '../data/contacts.json';
 import Contact from '../types/Contact';
 
-export default (id:number):Contact => { 
+export default (id:number, contacts:any):Contact => { 
     let result:Contact;
 
     for (let i = 0; i < contacts.length; i++){

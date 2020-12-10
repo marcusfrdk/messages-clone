@@ -38,7 +38,7 @@ const GenerateNewUserAndMessageButton = ({ setFirstModalActive, setMessages, mes
         .then(res => {
             let data = res.data.results[0]
 
-            newUser.id = generateNewID();
+            newUser.id = generateNewID(contacts);
             newUser.name = `${data.name.first} ${data.name.last}`;
             newUser.phone = data.phone;
             newUser.email = data.email;
@@ -52,6 +52,7 @@ const GenerateNewUserAndMessageButton = ({ setFirstModalActive, setMessages, mes
             setGlobal({ contacts: newContacts });
 
             // Append to messages
+
             let newList = [...messages, newMessage];
             newList.sort((a, b) => {
                 return (a.time > b.time) ? -1 : 1;

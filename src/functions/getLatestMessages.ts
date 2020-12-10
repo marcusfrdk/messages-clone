@@ -1,7 +1,6 @@
-import contacts from '../data/contacts.json';
 import Message from '../types/Message';
 
-export default ():Message[] => {
+export default (contacts:any):Message[] => {
     let messages:Message[] = [];
     
     for(let i = 0; i < contacts.length; i++){

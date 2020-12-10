@@ -3,10 +3,12 @@ import { View, Text, StyleSheet } from 'react-native';
 import ContactImage from '../ContactImage';
 import Texts from './Texts';
 import getContact from '../../../functions/getContact';
+import { useGlobal } from 'reactn';
 
 const ContactInfo = ({ data, isEditing }:Props) => {
+    const [ contacts ] = useGlobal<any>('contacts');
     let { time, message, id } = data;
-    let { image, gender, name } = getContact(data.id);
+    let { image, gender, name } = getContact(data.id, contacts);
 
     return (
         <View style={{ flexDirection: 'row' }}>

@@ -1,6 +1,4 @@
-import contacts from '../data/contacts.json';
-
-export default ():number => {
+export default (contacts:any):number => {
     let newID = 1;
 
     for(let i = 0; i < contacts.length; i++){

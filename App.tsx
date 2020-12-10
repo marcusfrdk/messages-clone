@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
 import { NavigationContainer, DefaultTheme, DarkTheme, useTheme } from '@react-navigation/native';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
@@ -13,13 +13,26 @@ import NewMessage from './src/components/buttons/NewMessage';
 import RecentMessagesListScreen from './src/screens/RecentMessagesListScreen';
 import MessageScreen from './src/screens/MessageScreen';
 
+// Data
+import defaultContacts from './src/data/contacts.json';
+
 export default function App() {
+  const [ loaded, setLoaded ] = useState(false);
   const scheme = useColorScheme();
-  const theme = useTheme();
-  setGlobal({
-    messages: []
-  })
+  const [ contacts ] = useGlobal<any>('contacts');
+
+  useEffect(() => {
+    if(!contacts){
+      setGlobal({
+        contacts: defaultContacts
+      })
+    }
+    
+    setLoaded(true)
+  }, [])
   
+  console.log(contacts)
+
   const iOSLightTheme = {
     ...DefaultTheme,
     colors: {
@@ -46,21 +59,23 @@ export default function App() {
     }
   }
 
-  return (
-    <>
-      <StatusBar barStyle={scheme === "dark" ? 'light-content' : "dark-content"}/>
-      <AppearanceProvider>
-        <NavigationContainer theme={scheme === "dark" ? iOSDarkTheme : iOSLightTheme}>
-          <Stack.Navigator initialRouteName="RecentMessagesListScreen">
-            <Stack.Screen name="RecentMessagesListScreen" component={RecentMessagesListScreen} options={{
-              title: 'Messages'
-            }}/>
-            <Stack.Screen name="Message" component={MessageScreen} options={{ 
-              title: "Message",
-            }}/>
-          </Stack.Navigator>
-        </NavigationContainer>
-      </AppearanceProvider>
-    </>
-  );
+  if(loaded){
+    return (
+      <>
+        <StatusBar barStyle={scheme === "dark" ? 'light-content' : "dark-content"}/>
+        <AppearanceProvider>
+          <NavigationContainer theme={scheme === "dark" ? iOSDarkTheme : iOSLightTheme}>
+            <Stack.Navigator initialRouteName="RecentMessagesListScreen">
+              <Stack.Screen name="RecentMessagesListScreen" component={RecentMessagesListScreen} options={{
+                title: 'Messages'
+              }}/>
+              <Stack.Screen name="Message" component={MessageScreen} options={{ 
+                title: "Message",
+              }}/>
+            </Stack.Navigator>
+          </NavigationContainer>
+        </AppearanceProvider>
+      </>
+    );
+  } else return null;
 }
