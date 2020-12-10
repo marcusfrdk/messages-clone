@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Marcus Fredriksson",
-        "number": "+46 73-859 32 85",
+        "phone": "+46 73-859 32 85",
         "email": "marcus@gmail.com",
         "gender": "male",
         "image": true,
@@ -20,7 +20,7 @@
                 "message": "Det är bara fint, jag håller på att skapa min meddelande app bara, själv då?",
                 "sender": 0,
                 "receiver": 1,
-                "time": 1000000000000,
+                "time": 1607547156179,
                 "read": true
             },
             {

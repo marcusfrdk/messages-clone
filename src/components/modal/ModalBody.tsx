@@ -12,7 +12,10 @@ const ModalBody = ({ children }:Props) => {
 const styles = StyleSheet.create({
     container: {
         height: "100%",
-        backgroundColor: "#FFF"
+        backgroundColor: "#FFF",
+        alignItems: "center",
+        paddingRight: 16,
+        paddingLeft: 16
     }
 });
 

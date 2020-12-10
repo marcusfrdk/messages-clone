@@ -1,20 +1,23 @@
 import { useTheme } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Alert } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import getInitials from '../../functions/getInitials';
 
-const HeaderImage = ({ id, gender, name, image }:Props) => {
+const HeaderImage = ({ id, gender, name, image, modalOpen, setModalOpen }:Props) => {
     const uri = `https://randomuser.me/api/portraits/${gender == "male" ? "men" : "women"}/${id}.jpg`;
     const initials = getInitials(name);
     const theme:any = useTheme();
 
     return (
-        <View style={styles.container}>
-            {
-                image ? <Image source={{ uri }} style={styles.image}/> : <View style={[styles.noImage, { backgroundColor: theme.colors.text2 }]}><Text style={{ color: '#FFF' }}>{initials}</Text></View>
-            }
-            <Text style={styles.text} numberOfLines={1}>{name.includes(" ") ? name.split(" ")[0] : name}</Text>
-        </View>
+        <TouchableWithoutFeedback onPress={() => setModalOpen(true)}>
+            <View style={styles.container}>
+                        {
+                            image ? <Image source={{ uri }} style={styles.image}/> : <View style={[styles.noImage, { backgroundColor: theme.colors.text2 }]}><Text style={{ color: '#FFF' }}>{initials}</Text></View>
+                        }
+                    <Text style={styles.text} numberOfLines={1}>{name.includes(" ") ? name.split(" ")[0] : name}</Text>
+            </View>
+        </TouchableWithoutFeedback>
     )
 }
 
@@ -24,7 +27,7 @@ const styles = StyleSheet.create({
         width: 100,
         flexDirection: "column",
         justifyContent: 'flex-start',
-        alignItems: "center"
+        alignItems: "center",
     },
     image: {
         height: 32,
@@ -48,7 +51,9 @@ interface Props {
     id: number,
     gender: string,
     name: string,
-    image: boolean
+    image: boolean,
+    modalOpen: boolean,
+    setModalOpen: any
 }
 
 export default HeaderImage;
