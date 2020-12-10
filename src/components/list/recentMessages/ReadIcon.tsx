@@ -2,10 +2,10 @@ import { useTheme } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const HasRead = ({ hasRead, editing }:Props) => {
+const ReadIcon = ({ hasRead, isEditing }:Props) => {
     const theme = useTheme();
 
-    if(!hasRead && !editing){
+    if(!hasRead && !isEditing){
         return (
             <View style={styles.wrapper}>
                 <View style={[{ backgroundColor: theme.colors.primary }, styles.icon ]}></View>
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 
 interface Props {
     hasRead: boolean,
-    editing: boolean
+    isEditing: boolean
 }
 
-export default HasRead;
+export default ReadIcon;

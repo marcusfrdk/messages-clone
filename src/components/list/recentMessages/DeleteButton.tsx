@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const RightSwipe = (red:string) => {
+const DeleteButton = (red:string, id:number, messages:any, setMessages:any) => {
     return (
-        <TouchableWithoutFeedback onPress={() => Alert.alert("You are deleting this bruv")}>
+        <TouchableWithoutFeedback onPress={() => {
+            const newList = messages.filter((item:any) => item.id !== id);
+            setMessages(newList);
+        }}>
             <View style={[styles.container, { backgroundColor: red }]}>
                 <Icon name="ios-trash" size={36} color="#FFF"/>
             </View>
@@ -22,8 +25,4 @@ const styles = StyleSheet.create({
     }
 });
 
-interface Props {
-    
-}
-
-export default RightSwipe;
+export default DeleteButton;

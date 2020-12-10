@@ -3,11 +3,11 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Editing = ({ isSelected, editing }:Props) => {
+const SelectIcon = ({ isSelected, isEditing }:Props) => {
     const theme = useTheme();
 
     return (
-        <View style={[styles.selectWrapper, { display: editing ? 'flex' : 'none' }]}>
+        <View style={[styles.selectWrapper, { display: isEditing ? 'flex' : 'none' }]}>
             <View style={[{ backgroundColor: isSelected ? theme.colors.primary : theme.colors.border }, styles.selectButton ]}>
                 {
                     isSelected ? <Icon name="ios-checkmark" size={22} color="#FFF"/> : null
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 
 interface Props {
     isSelected: boolean,
-    editing: boolean
+    isEditing: boolean
 }
 
-export default Editing;
+export default SelectIcon;

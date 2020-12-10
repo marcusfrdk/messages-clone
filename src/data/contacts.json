@@ -4,27 +4,135 @@
         "name": "Marcus Fredriksson",
         "number": "+46 73-859 32 85",
         "email": "marcus@gmail.com",
-        "image": true
+        "gender": "male",
+        "image": true,
+        "messages": [
+            {
+                "id": 1,
+                "message": "Men shit vad coolt, du får skicka över appen när den är klar. Det är bara bra med mig.",
+                "sender": 1,
+                "receiver": 0,
+                "time": 1000000000000,
+                "read": false
+            },
+            {
+                "id": 1,
+                "message": "Det är bara fint, jag håller på att skapa min meddelande app bara, själv då?",
+                "sender": 0,
+                "receiver": 1,
+                "time": 1000000000000,
+                "read": true
+            },
+            {
+                "id": 1,
+                "message": "Tja, hur är det läget?",
+                "sender": 1,
+                "receiver": 0,
+                "time": 1000000000000,
+                "read": true
+            }
+        ]
     },
     {
         "id": 2,
         "name": "Anton Svensson",
-        "number": "+46 73-859 48 25",
+        "phone": "+46 73-859 48 25",
         "email": "anton.svensson.11@gmail.com",
-        "image": false
+        "image": false,
+        "gender": "male",
+        "messages": [
+            {
+                "id": 2,
+                "message": "Verkligen, köpte du några?",
+                "sender": 2,
+                "receiver": 0,
+                "time": 1000000000000,
+                "read": false
+            },
+            {
+                "id": 2,
+                "message": "Ah haha, sjukt att de har gått upp så mycket!",
+                "sender": 0,
+                "receiver": 2,
+                "time": 1000000000000,
+                "read": true
+            },
+            {
+                "id": 2,
+                "message": "Såg du SAS aktierna eller?",
+                "sender": 2,
+                "receiver": 0,
+                "time": 1000000000000,
+                "read": true
+            }
+        ]
     },
     {
         "id": 3,
         "name": "Cecilia Lundstedt",
-        "number": "+46 73-284 94 82",
+        "phone": "+46 73-284 94 82",
         "email": "cissilundstedt@gmail.com",
-        "image": true
+        "image": true,
+        "gender": "female",
+        "messages": [
+            {
+                "id": 3,
+                "message": "Kul! Jag bokar biljetter för oss och Alfred, Johanna och Oscar också",
+                "sender": 3,
+                "receiver": 0,
+                "time": 1000000000000,
+                "read": false
+            },
+            {
+                "id": 3,
+                "message": "Ja men det tycker jag, låter jättekul!",
+                "sender": 0,
+                "receiver": 3,
+                "time": 1000000000000,
+                "read": true
+            },
+            {
+                "id": 3,
+                "message": "Ska vi dra på Summerburst iår eller? Tänkte boka några biljetter.",
+                "sender": 3,
+                "receiver": 0,
+                "time": 1000000000000,
+                "read": true
+            }
+        ]
     },
     {
         "id": 4,
         "name": "Hanna",
-        "number": "+46 78-383 49 98",
+        "phone": "+46 78-383 49 98",
         "email": "hanna99@hotmail.se",
-        "image": true
+        "image": true,
+        "gender": "female",
+        "messages": [
+            {
+                "id": 4,
+                "message": "Absolut, vad har du tänkt för designspråk?",
+                "sender": 4,
+                "receiver": 0,
+                "time": 1000000000000,
+                "read": false
+            },
+            {
+                "id": 4,
+                "message": "Ja gärna, skulle vilja ha en mer UI/UX optimerad design, skulle du kunna fixa det?",
+                "sender": 0,
+                "receiver": 4,
+                "time": 1000000000000,
+                "read": true
+            },
+            {
+                "id": 4,
+                "message": "Behöver du hjälp med någon design för din app?",
+                "sender": 4,
+                "receiver": 0,
+                "time": 1000000000000,
+                "read": true
+            }
+        ]
     }
 ]

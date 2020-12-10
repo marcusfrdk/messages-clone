@@ -2,16 +2,18 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import ContactImage from '../ContactImage';
 import Texts from './Texts';
+import getContact from '../../../functions/getContact';
 
-const Info = ({ data, editing }:Props) => {
-    const { image, id, gender, name } = data;
+const ContactInfo = ({ data, isEditing }:Props) => {
+    let { time, message, id } = data;
+    let { image, gender, name } = getContact(data.id);
 
     return (
         <View style={{ flexDirection: 'row' }}>
             <View style={styles.imageWrapper}>
                 <ContactImage image={image} id={id} gender={gender} name={name}/>
             </View>
-            <Texts editing={editing} data={data} />
+            <Texts isEditing={isEditing} time={time} message={message} name={name} />
         </View>
     )
 }
@@ -25,18 +27,9 @@ const styles = StyleSheet.create({
     },
 });
 
-interface Data {
-    image: boolean,
-    id: number,
-    gender: string,
-    name: string,
-    time: number,
-    message: string
-}
-
 interface Props {
-    data: Data,
-    editing: boolean
+    data: any,
+    isEditing: boolean
 }
 
-export default Info;
+export default ContactInfo;

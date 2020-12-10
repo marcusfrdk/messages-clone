@@ -2,7 +2,7 @@ import { useTheme } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 
-const SearchSmall = ({ value, setValue }:Props) => {    
+const SearchBarSmall = ({ value, setValue }:Props) => {    
     const theme = useTheme();
 
     return (
@@ -22,4 +22,4 @@ interface Props {
     setValue: any
 }
 
-export default SearchSmall;
+export default SearchBarSmall;

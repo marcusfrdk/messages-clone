@@ -4,17 +4,21 @@ import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
 import { NavigationContainer, DefaultTheme, DarkTheme, useTheme } from '@react-navigation/native';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
 import { createStackNavigator } from '@react-navigation/stack'; const Stack = createStackNavigator();
+import { useGlobal, setGlobal } from 'reactn';
 
 // Components
 import NewMessage from './src/components/buttons/NewMessage';
 
 // Screens
-import MessagesListScreen from './src/screens/MessagesListScreen';
+import RecentMessagesListScreen from './src/screens/RecentMessagesListScreen';
 import MessageScreen from './src/screens/MessageScreen';
 
 export default function App() {
   const scheme = useColorScheme();
   const theme = useTheme();
+  setGlobal({
+    messages: []
+  })
   
   const iOSLightTheme = {
     ...DefaultTheme,
@@ -47,8 +51,8 @@ export default function App() {
       <StatusBar barStyle={scheme === "dark" ? 'light-content' : "dark-content"}/>
       <AppearanceProvider>
         <NavigationContainer theme={scheme === "dark" ? iOSDarkTheme : iOSLightTheme}>
-          <Stack.Navigator initialRouteName="MessagesListScreen">
-            <Stack.Screen name="MessagesListScreen" component={MessagesListScreen} options={{
+          <Stack.Navigator initialRouteName="RecentMessagesListScreen">
+            <Stack.Screen name="RecentMessagesListScreen" component={RecentMessagesListScreen} options={{
               title: 'Messages',
               headerRight: props => (<NewMessage {...props} />),
             }}/>

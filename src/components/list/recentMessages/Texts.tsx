@@ -4,18 +4,17 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import timestampToDate from '../../../functions/timestampToDate';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-const Texts = ({ editing, data }:Props) => {
+const Texts = ({ isEditing, time, message, name }:Props) => {
     const theme:any = useTheme();
-    const { time, message, name } = data;
 
     return (
         <View style={{
-            width: Dimensions.get('screen').width - (editing ? 105 : 70) - 30,
+            width: Dimensions.get('screen').width - (isEditing ? 105 : 70) - 30,
             justifyContent: 'center',
             borderBottomWidth: 1,
             borderBottomColor: theme.colors.border
         }}>
-            <View style={[styles.info, { width: Dimensions.get('screen').width - (editing ? 105 : 60) - (editing ? 22 : 32) }]}>
+            <View style={[styles.info, { width: Dimensions.get('screen').width - (isEditing ? 105 : 60) - (isEditing ? 22 : 32) }]}>
                 <Text 
                     numberOfLines={1}
                     style={{
@@ -33,7 +32,7 @@ const Texts = ({ editing, data }:Props) => {
                     />
                 </View>
             </View>
-            <Text numberOfLines={2} style={[styles.message, { color: theme.colors.text2, width: Dimensions.get('screen').width - (editing ? 105 : 60) - (editing ? 24 : 32) }]}>{message}</Text>
+            <Text numberOfLines={2} style={[styles.message, { color: theme.colors.text2, width: Dimensions.get('screen').width - (isEditing ? 105 : 60) - (isEditing ? 24 : 32) }]}>{message}</Text>
         </View>
     )
 }
@@ -54,15 +53,11 @@ const styles = StyleSheet.create({
     }
 });
 
-interface Data {
+interface Props {
     time: number,
     name: string,
     message: string
-}
-
-interface Props {
-    data:Data,
-    editing:boolean
+    isEditing: boolean
 }
 
 export default Texts;
