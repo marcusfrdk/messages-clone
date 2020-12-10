@@ -5,8 +5,9 @@ import ModalHeader from '../modal/ModalHeader';
 import ModalBody from '../modal/ModalBody';
 import Modal from '../modal/Modal';
 import { useTheme } from '@react-navigation/native';
+import GenerateNewMessageButton from './GenerateNewMessageButton';
 
-const NewMessage:any = ({ navigator }:Props) => {
+const NewMessage:any = ({ setMessages, messages }:Props) => {
     const [ firstModalActive, setFirstModalActive ] = useState(false);
     const [ secondModalActive, setSecondModalActive ] = useState(false);
     const theme:any = useTheme();
@@ -18,8 +19,8 @@ const NewMessage:any = ({ navigator }:Props) => {
                 title="New Message"
                 visibility={firstModalActive}
                 setVisibility={setFirstModalActive}
-            >
-                <Text>Nice boiii</Text>
+            >   
+                <GenerateNewMessageButton setFirstModalActive={setFirstModalActive} messages={messages} setMessages={setMessages} />
                 <Button title="Open another text" onPress={() => setSecondModalActive(true)}/>
 
                 <Modal
@@ -36,7 +37,8 @@ const NewMessage:any = ({ navigator }:Props) => {
 }
 
 interface Props {
-    navigator: any
+    messages: any,
+    setMessages: any
 }
 
 const styles = StyleSheet.create({

@@ -4,19 +4,13 @@ import { useTheme } from '@react-navigation/native';
 import { View, Text, Alert, Button } from 'react-native';
 
 // Data
-import contacts from '../../data/contacts.json';
 import RecentMessagesListItem from './RecentMessagesListItem';
 
-// Functions
-import getLatestMessages from '../../functions/getLatestMessages';
-
 // Types
-import Message from '../../types/Message';
 import EditingDeleteButton from '../buttons/EditingDeleteButton';
 
-const RecentMessagesList = ({ isEditing, selectedItems, setSelectedItems }:Props) => {
+const RecentMessagesList = ({ isEditing, selectedItems, setSelectedItems, messages, setMessages }:Props) => {
     const theme:any = useTheme();
-    const [ messages, setMessages ] = useState<Message[]>(getLatestMessages); 
 
     // Reset selectedItems if edit is closed
     useEffect(() => {
@@ -49,21 +43,12 @@ const RecentMessagesList = ({ isEditing, selectedItems, setSelectedItems }:Props
     )
 }
 
-// return (
-//     <RecentMessagesListItem
-//         key={data.id}
-//         isEditing={isEditing}
-//         selectedItems={selectedItems}
-//         data={data}
-//         messages={messages}
-//         setMessages={setMessages}
-//     />
-// )
-
 interface Props {
     isEditing: boolean,
     selectedItems: any,
-    setSelectedItems: any
+    setSelectedItems: any,
+    messages: any,
+    setMessages: any
 }
 
 export default RecentMessagesList;

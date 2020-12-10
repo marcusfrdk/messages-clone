@@ -18,11 +18,15 @@ const EditingDeleteButton = ({ selectedItems, setSelectedItems, messages, setMes
 
     }
 
-    return (
-        <View style={{ marginTop: 16 }}>
-            <Button title="Delete" onPress={deleteSelected} color={theme.colors.notification}/>
-        </View>
-    )
+    if(messages.length > 0){
+        return (
+            <View style={{ marginTop: 16 }}>
+                <Button title="Delete" onPress={deleteSelected} color={theme.colors.notification}/>
+            </View>
+        )
+    } else {
+        return null;
+    }
 }
 
 interface Props {

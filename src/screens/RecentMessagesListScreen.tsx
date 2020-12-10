@@ -5,30 +5,29 @@ import { useTheme } from '@react-navigation/native';
 // Components
 import SearchBarSmall from '../components/search/SearchBarSmall';
 import RecentMessagesList from '../components/list/RecentMessagesList';
+import NewMessage from '../components/buttons/NewMessage';
 
-// Data
-
-// Data
-import contacts from '../data/contacts.json';
+// Functions
+import getLatestMessages from '../functions/getLatestMessages';
 
 // Types
-import Contact from '../types/Contact';
+import Message from '../types/Message';
 
 const MessagesListScreen = ({ navigation }:any) => {
     const [ isEditing, setIsEditing ] = useState(false);
     const [ selectedItems, setSelectedItems ] = useState([]);
+    const [ messages, setMessages ] = useState<Message[]>(getLatestMessages); 
     const theme:any = useTheme();
     
     // Allow edit button in header to change state
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerLeft: () => (
-                <View style={{ marginLeft: 8 }}>
-                    <Button title={isEditing ? "Cancel" : "Edit"} onPress={() => setIsEditing(isEditing ? false : true)}/>
-                </View>
-            )
+            headerLeft: () => ( // EDIT BUTTON
+                messages.length > 0 ? <View style={{ marginLeft: 8 }}><Button title={isEditing ? "Cancel" : "Edit"} onPress={() => setIsEditing(isEditing ? false : true)}/></View> : null
+            ), // NEW MESSAGE BUTTON
+            headerRight: () => <NewMessage messages={messages} setMessages={setMessages} />
         });
-    }, [navigation, isEditing]);
+    }, [navigation, isEditing, messages]);
 
     return (
         <ScrollView style={{ backgroundColor: theme.colors.card }}>
@@ -38,6 +37,8 @@ const MessagesListScreen = ({ navigation }:any) => {
                 isEditing={isEditing}
                 selectedItems={selectedItems}
                 setSelectedItems={setSelectedItems}
+                messages={messages}
+                setMessages={setMessages}
             />
         </ScrollView>
     )

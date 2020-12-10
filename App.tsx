@@ -53,8 +53,7 @@ export default function App() {
         <NavigationContainer theme={scheme === "dark" ? iOSDarkTheme : iOSLightTheme}>
           <Stack.Navigator initialRouteName="RecentMessagesListScreen">
             <Stack.Screen name="RecentMessagesListScreen" component={RecentMessagesListScreen} options={{
-              title: 'Messages',
-              headerRight: props => (<NewMessage {...props} />),
+              title: 'Messages'
             }}/>
             <Stack.Screen name="Message" component={MessageScreen} options={{ 
               title: "Message",
