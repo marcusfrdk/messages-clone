@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { TouchableWithoutFeedback, View } from 'react-native';
+import { Alert, TouchableWithoutFeedback, View } from 'react-native';
 import DeleteButton from './recentMessages/DeleteButton';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { useTheme } from '@react-navigation/native';
 import SelectIcon from './recentMessages/SelectIcon';
 import ContactInfo from './recentMessages/ContactInfo';
 import ReadIcon from './recentMessages/ReadIcon';
+import getContact from '../../functions/getContact';
+import { useGlobal } from 'reactn';
 
-const RecentMessagesListItem = ({ data, isEditing, selectedItems, messages, setMessages }:Props) => {
+const RecentMessagesListItem = ({ data, isEditing, selectedItems, messages, setMessages, navigation }:Props) => {
     const { id, read } = data;
     const [ hasRead, setHasRead ] = useState<boolean>(read);
     const [ isSelected, setIsSelected ] = useState(false);
+    const [ contacts ] = useGlobal<any>('contacts');
     const theme = useTheme();
 
     useEffect(() => {
@@ -24,6 +27,10 @@ const RecentMessagesListItem = ({ data, isEditing, selectedItems, messages, setM
             selectedItems.includes(id) ? selectedItems.splice(index, 1) : selectedItems.push(id);
         } else {
             setHasRead(true);
+
+            let contact = getContact(id, contacts);
+
+            navigation.push('Message', { contact, totalMessages: messages ? messages.length : 0 });
         }
     }
 
@@ -49,7 +56,8 @@ interface Props {
     isEditing: boolean,
     selectedItems: any,
     messages:any,
-    setMessages:any
+    setMessages:any,
+    navigation: any
 }
 
 export default RecentMessagesListItem;

@@ -9,7 +9,7 @@ import RecentMessagesListItem from './RecentMessagesListItem';
 // Types
 import EditingDeleteButton from '../buttons/EditingDeleteButton';
 
-const RecentMessagesList = ({ isEditing, selectedItems, setSelectedItems, messages, setMessages }:Props) => {
+const RecentMessagesList = ({ isEditing, selectedItems, setSelectedItems, messages, setMessages, navigation }:Props) => {
     const theme:any = useTheme();
 
     // Reset selectedItems if edit is closed
@@ -29,6 +29,7 @@ const RecentMessagesList = ({ isEditing, selectedItems, setSelectedItems, messag
                             data={data}
                             messages={messages}
                             setMessages={setMessages}
+                            navigation={navigation}
                         />
                     )
                 })
@@ -44,7 +45,8 @@ interface Props {
     selectedItems: any,
     setSelectedItems: any,
     messages: any,
-    setMessages: any
+    setMessages: any,
+    navigation: any
 }
 
 export default RecentMessagesList;

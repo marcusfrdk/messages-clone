@@ -30,8 +30,6 @@ export default function App() {
 
     setLoaded(true)
   }, [])
-  
-  console.log(contacts)
 
   const iOSLightTheme = {
     ...DefaultTheme,
@@ -69,9 +67,7 @@ export default function App() {
               <Stack.Screen name="RecentMessagesListScreen" component={RecentMessagesListScreen} options={{
                 title: 'Messages'
               }}/>
-              <Stack.Screen name="Message" component={MessageScreen} options={{ 
-                title: "Message",
-              }}/>
+              <Stack.Screen name="Message" component={MessageScreen}/>
             </Stack.Navigator>
           </NavigationContainer>
         </AppearanceProvider>

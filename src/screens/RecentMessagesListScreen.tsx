@@ -44,6 +44,7 @@ const MessagesListScreen = ({ navigation }:any) => {
                 setSelectedItems={setSelectedItems}
                 messages={messages}
                 setMessages={setMessages}
+                navigation={navigation}
             />
         </ScrollView>
     )
