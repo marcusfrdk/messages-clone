@@ -34,10 +34,6 @@ const RecentMessagesList = ({ isEditing, selectedItems, setSelectedItems, messag
                 })
             }
 
-            {
-                isEditing ? <EditingDeleteButton selectedItems={selectedItems} setSelectedItems={setSelectedItems} messages={messages} setMessages={setMessages}/> : null
-            }
-
             <Text style={{ padding: 16, textAlign: "center", fontSize: 16, color: theme.colors.text2 }}>{messages.length === 1 ? `${messages.length} message` : `${messages.length} messages`}</Text>
         </View>
     )

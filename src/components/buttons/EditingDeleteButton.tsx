@@ -1,10 +1,10 @@
 import { useTheme } from '@react-navigation/native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 
 const EditingDeleteButton = ({ selectedItems, setSelectedItems, messages, setMessages }:Props) => {
     const theme = useTheme();
-
+    
     const deleteSelected = () => {
         if(selectedItems.length !== 0){
             let newList = messages;
@@ -20,13 +20,11 @@ const EditingDeleteButton = ({ selectedItems, setSelectedItems, messages, setMes
 
     if(messages.length > 0){
         return (
-            <View style={{ marginTop: 16 }}>
-                <Button title="Delete" onPress={deleteSelected} color={theme.colors.notification}/>
+            <View>
+                <View style={{ marginRight: 8 }}><Button title="Delete" onPress={deleteSelected} color={theme.colors.notification}/></View>
             </View>
         )
-    } else {
-        return null;
-    }
+    } else return null;
 }
 
 interface Props {

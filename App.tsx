@@ -17,8 +17,8 @@ import MessageScreen from './src/screens/MessageScreen';
 import defaultContacts from './src/data/contacts.json';
 
 export default function App() {
-  const [ loaded, setLoaded ] = useState(false);
   const scheme = useColorScheme();
+  const [ loaded, setLoaded ] = useState(false);
   const [ contacts ] = useGlobal<any>('contacts');
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function App() {
         contacts: defaultContacts
       })
     }
-    
+
     setLoaded(true)
   }, [])
   

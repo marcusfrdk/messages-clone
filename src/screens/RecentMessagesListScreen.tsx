@@ -8,6 +8,9 @@ import RecentMessagesList from '../components/list/RecentMessagesList';
 import NewMessage from '../components/buttons/NewMessage';
 import { useGlobal } from 'reactn';
 
+// Components
+import EditingDeleteButton from '../components/buttons/EditingDeleteButton';
+
 // Functions
 import getLatestMessages from '../functions/getLatestMessages';
 
@@ -27,7 +30,7 @@ const MessagesListScreen = ({ navigation }:any) => {
             headerLeft: () => ( // EDIT BUTTON
                 messages.length > 0 ? <View style={{ marginLeft: 8 }}><Button title={isEditing ? "Cancel" : "Edit"} onPress={() => setIsEditing(isEditing ? false : true)}/></View> : null
             ), // NEW MESSAGE BUTTON
-            headerRight: () => <NewMessage messages={messages} setMessages={setMessages} />
+            headerRight: () => isEditing ? <EditingDeleteButton messages={messages} selectedItems={selectedItems} setSelectedItems={setSelectedItems} setMessages={setMessages} /> : <NewMessage messages={messages} setMessages={setMessages} />
         });
     }, [navigation, isEditing, messages]);
 

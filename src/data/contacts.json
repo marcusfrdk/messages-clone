@@ -47,7 +47,7 @@
                 "sender": 2,
                 "receiver": 0,
                 "time": 1607267002910,
-                "read": false
+                "read": true
             },
             {
                 "id": 2,
@@ -81,7 +81,7 @@
                 "sender": 3,
                 "receiver": 0,
                 "time": 1607439792391,
-                "read": false
+                "read": true
             },
             {
                 "id": 3,

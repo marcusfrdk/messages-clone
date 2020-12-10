@@ -31,6 +31,9 @@ const GenerateNewUserAndMessageButton = ({ setFirstModalActive, setMessages, mes
     const generate = () => {
         const uri = "https://randomuser.me/api"
         let newUser:Contact = {};
+        setGlobal({
+            newUserIsCreating: true
+        })
         
         // Fetch data for new user
         axios
@@ -64,6 +67,10 @@ const GenerateNewUserAndMessageButton = ({ setFirstModalActive, setMessages, mes
 
 
         setFirstModalActive(false);
+
+        setGlobal({
+            newUserIsCreating: false
+        })
     }
 
     return (
