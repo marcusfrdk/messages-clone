@@ -11,6 +11,9 @@ import ProfileImage from '../components/image/ProfileImage';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ActionButton from '../components/buttons/ActionButton';
 import { color } from 'react-native-reanimated';
+import { useGlobal } from 'reactn';
+import getContact from '../functions/getContact';
+import Message from '../types/Message';
 
 const playButtons = [
     {
@@ -74,7 +77,7 @@ const PlayButton = ({ color, src }:any) => {
 }
 
 const MessageScreen = ({ navigation, route }:Props) => {
-    const contact = route.params.contact;
+    const [ contact, setContacat] = useState(route.params.contact);
     const totalMessages = route.params.totalMessages;
     const messages = contact.messages
     const scrollViewRef = useRef();
@@ -82,6 +85,7 @@ const MessageScreen = ({ navigation, route }:Props) => {
     const theme = useTheme();
     const [ value, setValue ] = useState("");
     const [ kbOpen, setKbOpen ] = useState(false);
+    const [ contacts ] = useGlobal<any>('contacts');
      
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -110,7 +114,31 @@ const MessageScreen = ({ navigation, route }:Props) => {
     }, [])
 
     const handleSubmit = () => {
-        console.log(value)
+        const localMessages = contact.messages
+        const globalMessages = getContact(contact.id, contacts)
+
+        const newMessage:Message = {
+            time: +new Date(),
+            id: contact.id,
+            sender: 0,
+            receiver: contact.id,
+            message: value,
+            name: contact.name,
+            read: true
+        }
+
+        let newMessages = [...localMessages, newMessage]
+
+        newMessages.sort((a, b) => {
+            return (a.time > b.time) ? -1 : 1;
+        })
+
+        const newContact = {...contact, messages: newMessages}
+        setContacat(newContact)
+        
+        
+        console.log(newContact)
+        setValue("");
     }
 
     return (
