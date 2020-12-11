@@ -9,26 +9,42 @@
         "messages": [
             {
                 "id": 1,
-                "message": "Men shit vad coolt, du får skicka över appen när den är klar. Det är bara bra med mig.",
+                "message": "SKOJAR DU? Vad fräckt! Asså ändå, även om det bara är en intership. Grattis!",
                 "sender": 1,
                 "receiver": 0,
-                "time": 1607526103989,
-                "read": false
-            },
-            {
-                "id": 1,
-                "message": "Det är bara fint, jag håller på att skapa min meddelande app bara, själv då?",
-                "sender": 0,
-                "receiver": 1,
-                "time": 1607547156179,
+                "time": 1607672427258,
                 "read": true
             },
             {
                 "id": 1,
-                "message": "Tja, hur är det läget?",
+                "message": "Eller ja, tekniskt sätt är det faktiskt en 'internship' haha.",
+                "sender": 0,
+                "receiver": 1,
+                "time": 1607671280544,
+                "read": true
+            },
+            {
+                "id": 1,
+                "message": "Jag jobbar som programmerare inom AI, det är riktigt coolt. Har fått jobb på Nvidia!",
+                "sender": 0,
+                "receiver": 1,
+                "time": 1607671213734,
+                "read": true
+            },
+            {
+                "id": 1,
+                "message": "Men hej på dig! Kul att du skriver, det är bara fint med mig. Hur är det med dig? Vad gör du nu för tiden?",
                 "sender": 1,
                 "receiver": 0,
-                "time": 1000000000000,
+                "time": 1607589653329,
+                "read": true
+            },
+            {
+                "id": 1,
+                "message": "Tjenare Marcus, det var länge sen!",
+                "sender": 0,
+                "receiver": 1,
+                "time": 1607586046417,
                 "read": true
             }
         ]
@@ -46,7 +62,7 @@
                 "message": "Verkligen, köpte du några?",
                 "sender": 2,
                 "receiver": 0,
-                "time": 1607267002910,
+                "time": 1607670386917,
                 "read": true
             },
             {
@@ -54,7 +70,7 @@
                 "message": "Ah haha, sjukt att de har gått upp så mycket!",
                 "sender": 0,
                 "receiver": 2,
-                "time": 1000000000000,
+                "time": 1607666777289,
                 "read": true
             },
             {
@@ -62,7 +78,7 @@
                 "message": "Såg du SAS aktierna eller?",
                 "sender": 2,
                 "receiver": 0,
-                "time": 1000000000000,
+                "time": 1607664970598,
                 "read": true
             }
         ]
@@ -80,7 +96,7 @@
                 "message": "Kul! Jag bokar biljetter för oss och Alfred, Johanna och Oscar också",
                 "sender": 3,
                 "receiver": 0,
-                "time": 1607439792391,
+                "time": 1607672166274,
                 "read": true
             },
             {
@@ -88,7 +104,7 @@
                 "message": "Ja men det tycker jag, låter jättekul!",
                 "sender": 0,
                 "receiver": 3,
-                "time": 1000000000000,
+                "time": 1607670418220,
                 "read": true
             },
             {
@@ -96,7 +112,7 @@
                 "message": "Ska vi dra på Summerburst iår eller? Tänkte boka några biljetter.",
                 "sender": 3,
                 "receiver": 0,
-                "time": 1000000000000,
+                "time": 1607669315001,
                 "read": true
             }
         ]
@@ -114,7 +130,7 @@
                 "message": "Absolut, vad har du tänkt för designspråk?",
                 "sender": 4,
                 "receiver": 0,
-                "time": 1607612674178,
+                "time": 1607585853274,
                 "read": false
             },
             {
@@ -122,7 +138,7 @@
                 "message": "Ja gärna, skulle vilja ha en mer UI/UX optimerad design, skulle du kunna fixa det?",
                 "sender": 0,
                 "receiver": 4,
-                "time": 1000000000000,
+                "time": 1606462645401,
                 "read": true
             },
             {
@@ -130,7 +146,7 @@
                 "message": "Behöver du hjälp med någon design för din app?",
                 "sender": 4,
                 "receiver": 0,
-                "time": 1000000000000,
+                "time": 1605857837604,
                 "read": true
             }
         ]
