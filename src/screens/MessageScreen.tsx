@@ -11,7 +11,7 @@ import ProfileImage from '../components/image/ProfileImage';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ActionButton from '../components/buttons/ActionButton';
 import { color } from 'react-native-reanimated';
-import { useGlobal } from 'reactn';
+import { setGlobal, useGlobal } from 'reactn';
 import getContact from '../functions/getContact';
 import Message from '../types/Message';
 
@@ -115,7 +115,6 @@ const MessageScreen = ({ navigation, route }:Props) => {
 
     const handleSubmit = () => {
         const localMessages = contact.messages
-        const globalMessages = getContact(contact.id, contacts)
 
         const newMessage:Message = {
             time: +new Date(),
@@ -136,8 +135,16 @@ const MessageScreen = ({ navigation, route }:Props) => {
         const newContact = {...contact, messages: newMessages}
         setContacat(newContact)
         
-        
-        console.log(newContact)
+        let newContacts = contacts
+        for(let i = 0; i < newContacts.length; i++){
+            newContacts = newContacts.filter((item:any) => item.id !== contact.id);
+        }
+
+        newContacts.sort((a:any, b:any) => {
+            return (a.id > b.id) ? 1 : -1;
+        })
+    
+
         setValue("");
     }
 
