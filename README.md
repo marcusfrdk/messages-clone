@@ -6,7 +6,7 @@ This is an iOS Messages app clone I created in React Native. It should be quite 
 <h2 align="left">Preview</h2>
 <p align="left"><img src="https://i.imgur.com/Mvx5ORp.png" height="500"/></p>
 <p align="left"><img src="https://i.imgur.com/E9YoHAK.png" height="500"/></p>
-<p align="left"><img src="https://i.imgur.com/z8D8cUk.png" height="500"/></p>
+<p align="left"><img src="https://i.imgur.com/EDfT2in.png" height="500"/></p>
 
 ## How to use
 1. Download the Expo Client app on your phone.
